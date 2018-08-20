@@ -6,6 +6,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context
@@ -15,7 +16,7 @@
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd"
+		http://www.springframework.org/schema/tx/spring-tx.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
        default-lazy-init="true">
 
     <!-- 只需扫描 业务逻辑层的类，因为控制层由springMVC配置文件扫描，，实体对象和Dao层数据访问接口由 MyBatis配置文件扫描. -->
@@ -64,4 +65,6 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--以注解的形式加载dao接口-->
+    <!--<mybatis-spring:scan base-package="lk.mapper"/>-->
 </beans>

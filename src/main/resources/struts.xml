@@ -8,5 +8,10 @@
     <!--告诉Struts框架，产生Action对象时，使用Spring-->
     <!--但是这依赖于一个库struts-spring-plugin-->
     <constant name="struts.objectFactory" value="spring"/>
-    
+
+    <package name="User"  extends="struts-default" namespace="/">
+        <action name="find" class="lk.controller.UserAction" method="findUser">
+            <result name="index">/index.jsp</result>
+        </action>
+    </package>
 </struts>
