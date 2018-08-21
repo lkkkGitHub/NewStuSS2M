@@ -13,8 +13,8 @@
 </head>
 <body>
 <form action="<s:url action="login"/> " method="post">
-    <p>邮箱：<input type="text" name="mail" value="${cookie.mail}"></p>
-    <p>密码：<input type="password" name="password" value="${cookie.password}"></p>
+    <p>邮箱：<input type="text" name="user.mail" value="${cookie.mail}"></p>
+    <p>密码：<input type="password" name="user.password" value="${cookie.password}"></p>
     <p><input type="submit" value="登陆"></p>
 </form>
 </body>

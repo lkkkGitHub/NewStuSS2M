@@ -13,41 +13,14 @@ import javax.servlet.http.Cookie;
  */
 public class UserAction {
 
-    private String mail;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private User user;
 
-    public String getFirstName() {
-        return firstName;
+    public User getUser() {
+        return user;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Autowired
@@ -67,12 +40,12 @@ public class UserAction {
      */
     public String login() {
         StringBuffer stringBuffer = new StringBuffer();
-        User user = userService.loginByMain(mail, password, stringBuffer);
-        if (user == null) {
+        User user1 = userService.loginByMain(user.getMail(), user.getPassword(), stringBuffer);
+        if (user1 == null) {
             return "login";
         } else {
-            Cookie mailCookie = new Cookie("mail", mail);
-            Cookie passwordCookie = new Cookie("password", password);
+            Cookie mailCookie = new Cookie("mail", user.getMail());
+            Cookie passwordCookie = new Cookie("password", user.getPassword());
             mailCookie.setMaxAge(30);
             passwordCookie.setMaxAge(30);
             return "index";
@@ -92,7 +65,6 @@ public class UserAction {
      * @return
      */
     public String register() {
-        User user = new User(firstName, lastName, mail, password);
         userService.register(user);
         return "register";
     }
