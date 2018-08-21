@@ -10,7 +10,21 @@
     <constant name="struts.objectFactory" value="spring"/>
 
     <package name="User"  extends="struts-default" namespace="/">
-        <action name="find" class="lk.controller.UserAction" method="findUser">
+
+        <action name="showLogin" class="lk.controller.UserAction" method="showLogin">
+            <result name="login">/login.jsp</result>
+        </action>
+
+        <action name="login" class="lk.controller.UserAction" method="login">
+            <result name="index">/index.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+
+        <action name="showRegister" class="lk.controller.UserAction" method="showRegister">
+            <result name="register">/register.jsp</result>
+        </action>
+
+        <action name="register" class="lk.controller.UserAction" method="register">
             <result name="index">/index.jsp</result>
         </action>
     </package>

@@ -12,10 +12,10 @@
     <title></title>
 </head>
 <body>
-
-<P>
-    <a href="<s:url action="showLogin"/>">用户登陆</a>
-    <a href="<s:url action="showRegister"/> ">用户注册</a>
-</P>
+<form action="<s:url action="login"/> " method="post">
+    <p>邮箱：<input type="text" name="mail" value="${cookie.mail}"></p>
+    <p>密码：<input type="password" name="password" value="${cookie.password}"></p>
+    <p><input type="submit" value="登陆"></p>
+</form>
 </body>
 </html>
