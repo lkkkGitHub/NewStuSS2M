@@ -14,6 +14,7 @@ public class UserService {
 
     /**
      * 登陆
+     *
      * @param mail
      * @param password
      * @param stringBuffer
@@ -37,6 +38,7 @@ public class UserService {
 
     /**
      * 注册
+     *
      * @param user
      * @return
      */

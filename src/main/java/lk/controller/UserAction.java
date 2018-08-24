@@ -49,6 +49,7 @@ public class UserAction extends ActionSupport implements RequestAware {
 
     /**
      * 跳转到登陆页面
+     *
      * @return
      */
     public String showLogin() {
@@ -56,7 +57,12 @@ public class UserAction extends ActionSupport implements RequestAware {
     }
 
     /**
-     * 登陆post
+     * 登陆post：
+     * 从前台获取到用户输入的邮箱，以及密码；创建一个StringBuffer对象，
+     * 和邮箱，以及密码一起传入到service中，通过stringBuffer对象将错误信息带回来，
+     * 如果从service中返回的信息为空，即表示登陆信息错误，重新返回到登陆页面，并将错误信息返回到页面；
+     * 返回不为空，即表示登陆信息正确，返回到主页，并将用户信息传入到session中
+     *
      * @return
      */
     public String login() {
@@ -73,7 +79,8 @@ public class UserAction extends ActionSupport implements RequestAware {
 
     /**
      * 跳转到注册界面
-     * @return
+     *
+     * @return 登陆界面
      */
     public String showRegister() {
         return "register";
@@ -81,6 +88,7 @@ public class UserAction extends ActionSupport implements RequestAware {
 
     /**
      * 注册
+     *
      * @return
      */
     public String register() {
@@ -91,7 +99,7 @@ public class UserAction extends ActionSupport implements RequestAware {
     /**
      * 对所有方法都进行判断
      */
-    public void validate(){
+    public void validate() {
 
     }
 
@@ -111,7 +119,7 @@ public class UserAction extends ActionSupport implements RequestAware {
     /**
      * 仅对注册有效
      */
-    public void validateRegister(){
+    public void validateRegister() {
         if (user.getFirstName().isEmpty()) {
             this.addFieldError("firstName", "不能为空");
         }
