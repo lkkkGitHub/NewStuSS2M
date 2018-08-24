@@ -10,6 +10,16 @@ public class User {
     private String password;
     private Integer privilege;
 
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String mail, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
