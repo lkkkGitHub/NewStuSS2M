@@ -93,7 +93,7 @@
                 <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
             </div>
-            <p style="color:red;">${requestScope.message}</p>
+            <p style="color:red;">${requestScope.messageLogin}</p>
             <br>
             <div class="form-group">
                 <input class="form-control btn btn-warning" value="&nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;"

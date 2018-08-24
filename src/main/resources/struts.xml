@@ -29,5 +29,9 @@
             <result name="success">/index.jsp</result>
             <result name="input">/register.jsp</result>
         </action>
+        <!--查询所有非管理员用户-->
+        <action name="findAllUser" class="lk.controller.UserAction" method="findAllNotDeleteUser">
+            <result name="success">/controlUser.jsp</result>
+        </action>
     </package>
 </struts>
