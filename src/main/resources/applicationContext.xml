@@ -16,7 +16,8 @@
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
        default-lazy-init="true">
 
     <!-- 只需扫描 业务逻辑层的类，因为控制层由springMVC配置文件扫描，，实体对象和Dao层数据访问接口由 MyBatis配置文件扫描. -->
