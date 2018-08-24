@@ -16,8 +16,8 @@
         </action>
 
         <action name="login" class="lk.controller.UserAction" method="login">
-            <result name="index">/index.jsp</result>
-            <result name="login">/login.jsp</result>
+            <result name="input">/login.jsp</result>
+            <result name="success">/index.jsp</result>
         </action>
 
         <action name="showRegister" class="lk.controller.UserAction" method="showRegister">
@@ -25,7 +25,9 @@
         </action>
 
         <action name="register" class="lk.controller.UserAction" method="register">
-            <result name="index">/index.jsp</result>
+            <result name="index" >/index.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="input">/register.jsp</result>
         </action>
     </package>
 </struts>
