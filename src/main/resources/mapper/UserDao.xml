@@ -9,6 +9,7 @@
         <result column="mail" property="mail"/>
         <result column="password" property="password"/>
         <result column="privilege" property="privilege"/>
+        <result column="deleteFlag" property="deleteFlag"/>
     </resultMap>
 
     <select id="loginByMail" parameterType="java.lang.String" resultType="lk.pojo.User">
@@ -19,5 +20,11 @@
         insert into td_user (firstname, lastname, mail, password)
         values (#{firstName}, #{lastName}, #{mail}, #{password})
     </insert>
+
+    <select id="findAllNotDeleteUser" resultMap="AllColumnMap">
+        SELECT id,firstname,lastname,mail,privilege,deleteFlag
+        FROM td_user
+        WHERE privilege = 1
+    </select>
 </mapper>
 

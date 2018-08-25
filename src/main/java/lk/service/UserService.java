@@ -5,6 +5,7 @@ import lk.pojo.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -44,5 +45,15 @@ public class UserService {
      */
     public int register(User user) {
         return userDao.register(user);
+    }
+
+    /**
+     * 查询除管理员以外得用户信息
+     *
+     * @param id
+     * @return
+     */
+    public List<User> findAllNotDeleteUser() {
+        return userDao.findAllNotDeleteUser();
     }
 }
