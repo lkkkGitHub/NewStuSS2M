@@ -26,5 +26,9 @@
         FROM td_user
         WHERE privilege = 1
     </select>
+
+    <update id="upUserDeleteFlagById" parameterType="lk.pojo.User">
+        update td_user set deleteFlag = #{deleteFlag} where id = #{id}
+    </update>
 </mapper>
 

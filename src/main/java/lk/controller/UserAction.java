@@ -157,4 +157,16 @@ public class UserAction extends ActionSupport implements RequestAware {
         }
         return Action.SUCCESS;
     }
+
+    public String upUserDeleteFlagById() {
+        user.setDeleteFlag(1);
+        int i = userService.upUserDeleteFlagById(user);
+        if (i != 1) {
+            request.put("messageUpdate", "更新失败");
+            return Action.INPUT;
+        } else {
+            request.put("messageUpdate", "更新成功");
+            return Action.SUCCESS;
+        }
+    }
 }

@@ -21,8 +21,16 @@ public interface UserDao {
 
     /**
      * 查询除管理员以外得所有用户
-     * @param id
+     *
      * @return
      */
     List<User> findAllNotDeleteUser();
+
+    /**
+     * 管理员逻辑删除用户
+     *
+     * @param user
+     * @return
+     */
+    int upUserDeleteFlagById(User user);
 }

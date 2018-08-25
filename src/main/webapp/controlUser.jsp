@@ -19,7 +19,7 @@
         <td>名字</td>
         <td>邮箱</td>
         <td>权限</td>
-        <td>是否删除</td>
+        <td>是否被删除</td>
     </tr>
     <p style="color:red;">${requestScope.messageFind}</p>
     <s:iterator value="#request['users']">
@@ -28,12 +28,16 @@
             <td><s:property value="firstName"/><s:property value="lastName"/></td>
             <td><s:property value="mail"/></td>
             <td><s:property value="privilege"/></td>
-            <s:if test="deleteFlag != 0">
+            <s:if test="deleteFlag == 1">
                 <td>是</td>
             </s:if>
-            <s:else>
+            <s:if test="deleteFlag == 0">
                 <td>否</td>
-            </s:else>
+            </s:if>
+            <td><a href="<s:url action=""/>">编辑</a></td>
+            <td><s:a href="delete?user.id=%{id}">删除</s:a></td>
+            <%--没有显示--%>
+            <td style="color:red;"> <s:property value="#request.messageUpdate"/> </td>
         </tr>
     </s:iterator>
 </table>

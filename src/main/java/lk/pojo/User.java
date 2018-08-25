@@ -67,12 +67,12 @@ public class User {
         this.privilege = privilege;
     }
 
-    public Integer getDelectFlag() {
+    public Integer getDeleteFlag() {
         return deleteFlag;
     }
 
-    public void setDelectFlag(Integer delectFlag) {
-        this.deleteFlag = delectFlag;
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override
