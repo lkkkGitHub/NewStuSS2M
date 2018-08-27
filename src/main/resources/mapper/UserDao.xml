@@ -9,7 +9,12 @@
         <result column="mail" property="mail"/>
         <result column="password" property="password"/>
         <result column="privilege" property="privilege"/>
+        <result column="deleteFlag" property="deleteFlag"/>
     </resultMap>
+
+    <sql id="noPwd">
+        id, firstName, lastName, mail, privilege, deleteFlag
+    </sql>
 
     <select id="loginByMail" parameterType="java.lang.String" resultType="lk.pojo.User">
         select * from td_user where mail = #{value}
@@ -19,5 +24,31 @@
         insert into td_user (firstname, lastname, mail, password)
         values (#{firstName}, #{lastName}, #{mail}, #{password})
     </insert>
+
+    <select id="findAllNotDeleteUser" resultMap="AllColumnMap">
+        SELECT id,firstname,lastname,mail,privilege,deleteFlag
+        FROM td_user
+        WHERE privilege = 1
+    </select>
+
+    <update id="upUserDeleteFlagById" parameterType="lk.pojo.User">
+        update td_user set deleteFlag = #{deleteFlag} where id = #{id}
+    </update>
+
+    <select id="findUserById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+        select <include refid="noPwd"/> from td_user where id = #{id}
+    </select>
+
+    <update id="updateUserInfo" parameterType="lk.pojo.User">
+        UPDATE td_user
+        <set>
+            <if test="firstName != null"> firstName = #{firstName}, </if>
+            <if test="lastName != null"> lastName = #{lastName}, </if>
+            <if test="mail != null"> mail = #{mail}, </if>
+            <if test="privilege != null"> privilege = #{privilege}, </if>
+            <if test="deleteFlag != null"> deleteFlag = #{deleteFlag} </if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>
 

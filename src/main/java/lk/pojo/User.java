@@ -8,16 +8,10 @@ public class User {
     private String lastName;
     private String mail;
     private String password;
-    private Integer privilege;
+    private Integer privilege; //权限：0是管理员，1是普通用户
+    private Integer deleteFlag; //逻辑删除标记 1表示删除
 
     public User() {
-    }
-
-    public User(String firstName, String lastName, String mail, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mail = mail;
-        this.password = password;
     }
 
     public Integer getId() {
@@ -71,6 +65,14 @@ public class User {
 
     public void setPrivilege(Integer privilege) {
         this.privilege = privilege;
+    }
+
+    public Integer getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
     @Override
