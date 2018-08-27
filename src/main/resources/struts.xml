@@ -37,6 +37,14 @@
         <action name="delete" class="lk.controller.UserAction" method="upUserDeleteFlagById">
             <result name="success" type="redirectAction">findAllUser</result>
             <result name="input" type="redirectAction">findAllUser</result>
+            <result name="error" type="redirectAction">findAllUser</result>
+        </action>
+        <!--根据id查询用户信息-->
+        <action name="findUserById" class="lk.controller.UserAction" method="findUserById">
+            <result name="success">/editUser.jsp</result>
+        </action>
+        <action name="editUser" class="lk.controller.UserAction" method="editUser">
+            <result name="success" type="redirectAction">findAllUser</result>
         </action>
     </package>
 </struts>

@@ -33,4 +33,18 @@ public interface UserDao {
      * @return
      */
     int upUserDeleteFlagById(User user);
+
+    /**
+     * 根据用户id查询用户信息
+     * @param id
+     * @return
+     */
+    User findUserById(Integer id);
+
+    /**
+     * 更新用户除id和密码之外的信息
+     * @param user
+     * @return
+     */
+    int updateUserInfo(User user);
 }

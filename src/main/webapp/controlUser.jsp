@@ -21,6 +21,7 @@
         <td>权限</td>
         <td>是否被删除</td>
     </tr>
+    <td style="color:red;"> <s:property value="#request.messageUpdate"/> </td>
     <p style="color:red;">${requestScope.messageFind}</p>
     <s:iterator value="#request['users']">
         <tr>
@@ -34,10 +35,9 @@
             <s:if test="deleteFlag == 0">
                 <td>否</td>
             </s:if>
-            <td><a href="<s:url action=""/>">编辑</a></td>
-            <td><s:a href="delete?user.id=%{id}">删除</s:a></td>
-            <%--没有显示--%>
-            <td style="color:red;"> <s:property value="#request.messageUpdate"/> </td>
+            <td><s:a href="findUserById?user.id=%{id}">编辑</s:a></td>
+            <td><a href="delete.action?user.id=${id}&user.deleteFlag=${deleteFlag}"> 删除 </a></td>
+            <%--没有显示--%>1
         </tr>
     </s:iterator>
 </table>

@@ -74,4 +74,22 @@ public class UserService {
             return 1;
         }
     }
+
+    /**
+     * 根据用户id查询用户信息
+     * @param id
+     * @return
+     */
+    public User findUserById(Integer id) {
+        return userDao.findUserById(id);
+    }
+
+    /**
+     * 更新用户除id密码之外的信息
+     * @param user
+     * @return
+     */
+    public int updateUserInfo(User user) {
+        return userDao.updateUserInfo(user);
+    }
 }
