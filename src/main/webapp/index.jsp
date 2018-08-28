@@ -26,7 +26,8 @@
 <nav class="navbar navbar-default">
     <div style="float:right ;">
         <s:if test="#session.loginUser.privilege == 0">
-            <a href=" <s:url action="findAllUser"/> ">管理员</a>
+            <%--<a href=" <s:url action="findAllUser"/> ">管理员</a>--%>
+            <a href="adminJsp/adminIndex.jsp">管理员</a>
         </s:if>
         <a href="<s:url value='myinfo'/>">
             <s:property value="#session.loginUser.firstName"/>
