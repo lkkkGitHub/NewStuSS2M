@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lk.mapper.CourseSecondDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="lk.pojo.CourseSecond">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="firstId" property="firstId"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `name`,
+        `firstId`
+    </sql>
+
+    <select id="findAll" resultMap="AllColumnMap">
+        select name, firstid from td_course_second
+    </select>
+
+    <!--&lt;!&ndash;auto generated Code&ndash;&gt;-->
+    <!--<insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">-->
+        <!--INSERT INTO td_course_second (-->
+            <!--`id`,-->
+            <!--`name`,-->
+            <!--`firstId`-->
+        <!--) VALUES (-->
+            <!--#{pojo.id},-->
+            <!--#{pojo.name},-->
+            <!--#{pojo.firstId}-->
+        <!--)-->
+    <!--</insert>-->
+
+    <!--&lt;!&ndash;auto generated Code&ndash;&gt;-->
+    <!--<insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">-->
+        <!--INSERT INTO td_course_second-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+            <!--<if test="pojo.id!=null"> `id`,</if>-->
+            <!--<if test="pojo.name!=null"> `name`,</if>-->
+            <!--<if test="pojo.firstId!=null"> `firstId`,</if>-->
+        <!--</trim>-->
+        <!--VALUES-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+            <!--<if test="pojo.id!=null">#{pojo.id},</if>-->
+            <!--<if test="pojo.name!=null">#{pojo.name},</if>-->
+            <!--<if test="pojo.firstId!=null">#{pojo.firstId},</if>-->
+        <!--</trim>-->
+    <!--</insert>-->
+
+    <!--&lt;!&ndash;auto generated Code&ndash;&gt;-->
+    <!--<insert id="insertList">-->
+        <!--INSERT INTO td_course_second (-->
+        <!--<include refid="all_column"/>-->
+        <!--)VALUES-->
+        <!--<foreach collection="pojos" item="pojo" index="index" separator=",">-->
+            <!--(-->
+            <!--#{pojo.id},-->
+            <!--#{pojo.name},-->
+            <!--#{pojo.firstId}-->
+            <!--)-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <!--&lt;!&ndash;auto generated Code&ndash;&gt;-->
+    <!--<update id="update">-->
+        <!--UPDATE td_course_second-->
+        <!--<set>-->
+            <!--<if test="pojo.id != null"> `id` = #{pojo.id}, </if>-->
+            <!--<if test="pojo.name != null"> `name` = #{pojo.name}, </if>-->
+            <!--<if test="pojo.firstId != null"> `firstId` = #{pojo.firstId} </if>-->
+        <!--</set>-->
+        <!--WHERE id = #{pojo.id}-->
+    <!--</update>-->
+</mapper>
+
