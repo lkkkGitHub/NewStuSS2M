@@ -12,7 +12,7 @@
     <title></title>
 </head>
 <body>
-<p><a href="">一级课程</a></p>
+<p><a href="<s:url action="findAllFirstCtxSecond"/>">一级课程</a></p>
 <p><a href="<s:url action="findAll"/>">二级课程</a></p>
 <p><a href="">添加课程</a></p>
 </body>

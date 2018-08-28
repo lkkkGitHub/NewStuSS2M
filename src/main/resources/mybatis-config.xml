@@ -19,7 +19,7 @@
     将这个包下的实体类全部取别名 命名规则 别名等于类名
     -->
     <typeAliases>
-        <package name="pojo"/>
+        <package name="lk.pojo"/>
     </typeAliases>
     <!--
     <typeHandlers></typeHandlers>

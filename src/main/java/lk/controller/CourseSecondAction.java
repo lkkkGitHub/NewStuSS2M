@@ -18,7 +18,6 @@ public class CourseSecondAction {
 
     private CourseSecond courseSecond;
 
-
     public CourseSecond getCourseSecond() {
         return courseSecond;
     }
@@ -32,6 +31,10 @@ public class CourseSecondAction {
     @Autowired
     private CourseSecondService courseSecondService;
 
+    /**
+     * 查询所有的二级目录
+     * @return
+     */
     public String findAll() {
         List<CourseSecond> list = courseSecondService.findAll();
         if (list.size() != 0) {
@@ -42,4 +45,9 @@ public class CourseSecondAction {
             return Action.SUCCESS;
         }
     }
+
+//    public String deleteByList() {
+//
+//        return courseSecondService.deleteByList();
+//    }
 }

@@ -15,9 +15,23 @@
         `firstId`
     </sql>
 
+    <select id="findByFirstId" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+        select * from td_course_second where firstId = #{id};
+    </select>
+
     <select id="findAll" resultMap="AllColumnMap">
         select name, firstid from td_course_second
     </select>
+
+    <delete id="deleteByList" parameterType="java.util.List">
+        delete from td_course_second
+        where id in
+        <foreach collection="list" open="(" close=")" separator="," item="ids">
+            (
+              #{ids.value}
+            )
+        </foreach>
+    </delete>
 
     <!--&lt;!&ndash;auto generated Code&ndash;&gt;-->
     <!--<insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">-->

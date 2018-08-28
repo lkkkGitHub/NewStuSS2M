@@ -42,7 +42,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-right">
             <li class="active">
-                <a href="index.jsp">网站首页</a>
+                <a href="indexOne.jsp">网站首页</a>
             </li>
             <li><a href="CourseServlet?method=searchCourse&secondid=100" class="root">开设课程</a>
                 <ul>

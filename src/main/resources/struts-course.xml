@@ -10,8 +10,18 @@
     <constant name="struts.objectFactory" value="spring"/>
     
     <package name="course" extends="struts-default" namespace="/">
+
+        <action name="index" class="lk.controller.CourseFirstAction" method="findAllFirstCtxSecond">
+            <result name="success">indexOne.jsp</result>
+        </action>
+
+        <!--查询所有二级缓存目录-->
         <action name="findAll" class="lk.controller.CourseSecondAction" method="findAll">
             <result name="success">/adminJsp/course/secondCourse.jsp</result>
+        </action>
+        <!--查询一级目录连级查询二级目录-->
+        <action name="findAllFirstCtxSecond" class="lk.controller.CourseFirstAction" method="findAllFirstCtxSecond">
+            <result name="success">/adminJsp/course/firstCourse.jsp</result>
         </action>
     </package>
     
