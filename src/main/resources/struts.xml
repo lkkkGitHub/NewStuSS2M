@@ -48,4 +48,41 @@
             <result name="success" type="redirectAction">findAllUser</result>
         </action>
     </package>
+
+    <package name="admin" namespace="/admin" extends="struts-default">
+        <!--定义拦截器-->
+        <interceptors>
+            <!--我创建的拦截器类-->
+            <interceptor name="authority" class="lk.interceptor.LoginInterceptor"/>
+            <!--为了使用系统默认的拦截器们，定义一个栈-->
+            <interceptor-stack name="myDefault">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="authority"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--定义的栈设置成默认的拦截器栈-->
+        <default-interceptor-ref name="myDefault"/>
+
+        <!--响应表单提交-->
+        <action name="createCourse" class="lk.controller.CourseSecondAction" method="createCourse" >
+            <result name="success">/adminJsp/adminIndex.jsp</result>
+            <result name="login">/adminJsp/course/createCourse.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 -->
+                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">1025956</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />
+        </action>
+
+        <action name="adminInterceptor" class="lk.controller.CourseSecondAction" method="admin">
+            <result name="success">/adminJsp/course/createCourse.jsp</result>
+            <!--这个请求也不应被拦截-->
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+    </package>
 </struts>

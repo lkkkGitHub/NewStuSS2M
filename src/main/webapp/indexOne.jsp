@@ -22,6 +22,8 @@
 </head>
 <body>
 
+<a href="<s:url action="adminInterceptor" namespace="/admin"/> ">创建</a>
+
 <%--顶部导航栏--%>
 <nav class="navbar navbar-default">
     <div style="float:right ;">
