@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lk.mapper.CourseFirstDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="lk.pojo.CourseFirst">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <resultMap id="ctxSecond" type="lk.pojo.CourseFirst" extends="AllColumnMap">
+        <collection column="id" property="secondList" select="lk.mapper.CourseSecondDao.findByFirstId"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `name`
+    </sql>
+
+    <select id="findAllFirstCtxSecond" resultMap="ctxSecond">
+        select * from td_course_first
+    </select>
+</mapper>
+

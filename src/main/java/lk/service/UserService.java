@@ -56,8 +56,8 @@ public class UserService {
      *
      * @return
      */
-    public List<User> findAllNotDeleteUser() {
-        return userDao.findAllNotDeleteUser();
+    public List<User> findAllUserPvg0() {
+        return userDao.findAllUserPvg0();
     }
 
     /**

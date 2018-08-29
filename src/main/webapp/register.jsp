@@ -37,14 +37,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-right">
                 <li class="active">
-                    <a href="index.jsp">网站首页</a>
+                    <a href="indexOne.jsp">网站首页</a>
                 </li>
-                <li><a href="CourseServlet?method=searchCourse&secondid=100" class="root">开设课程</a>
+                <li><a href="CourseServlet?method=searchCourse&secondId=100" class="root">开设课程</a>
                     <ul>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=100">JAVA</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=102">WEB前端</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=104">软件测试</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=107">UI设计</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=100">JAVA</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=102">WEB前端</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=104">软件测试</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=107">UI设计</a></li>
 
                     </ul>
                 </li>
@@ -98,7 +98,7 @@
                     </span>
                     <s:if test="hasFieldErrors() && fieldErrors.mail!=null">
                         <input id="phoneNum" class="form-control" style="border: 1px solid red" placeholder="请输入电子邮件" maxlength="50" type="text"
-                               name="mail">
+                               name="user.mail">
                     </s:if>
                     <s:else>
                         <input id="phoneNum" class="form-control" placeholder="请输入电子邮件" maxlength="50" type="text"

@@ -25,7 +25,7 @@
         values (#{firstName}, #{lastName}, #{mail}, #{password})
     </insert>
 
-    <select id="findAllNotDeleteUser" resultMap="AllColumnMap">
+    <select id="findAllUserPvg0" resultMap="AllColumnMap">
         SELECT id,firstname,lastname,mail,privilege,deleteFlag
         FROM td_user
         WHERE privilege = 1

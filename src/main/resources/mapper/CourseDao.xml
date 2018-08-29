@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lk.mapper.CourseDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="lk.pojo.Course">
+        <result column="id" property="id"/>
+        <result column="courseName" property="courseName"/>
+        <result column="courseDesc" property="courseDesc"/>
+        <result column="courseImg" property="courseImg"/>
+        <result column="courseTeacher" property="courseTeacher"/>
+        <result column="courseType" property="courseType"/>
+        <result column="secondId" property="secondId"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `courseName`,
+        `courseDesc`,
+        `courseImg`,
+        `courseTeacher`,
+        `courseType`,
+        `secondId`
+    </sql>
+
+    <sql id="noId">
+        `courseName`,
+        `courseDesc`,
+        `courseImg`,
+        `courseTeacher`,
+        `courseType`,
+        `secondId`
+    </sql>
+
+    <!--根据传入的二级目录id 查询二级目录下的course具体信息-->
+    <select id="findCourseById" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+        select <include refid="all_column"/>
+        from td_course where `secondid` = #{firstId}
+    </select>
+
+    <!--插入课程信息-->
+    <insert id="insertCourse" parameterType="lk.pojo.Course" keyProperty="id" useGeneratedKeys="true">
+        insert into `td_course` (<include refid="noId"/>)
+        values (#{courseName}, #{courseDesc}, #{courseImg}, #{courseTeacher}, #{courseType}, #{secondId})
+    </insert>
+</mapper>
+

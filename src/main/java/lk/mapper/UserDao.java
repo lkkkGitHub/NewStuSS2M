@@ -24,7 +24,7 @@ public interface UserDao {
      *
      * @return
      */
-    List<User> findAllNotDeleteUser();
+    List<User> findAllUserPvg0();
 
     /**
      * 管理员逻辑删除用户
