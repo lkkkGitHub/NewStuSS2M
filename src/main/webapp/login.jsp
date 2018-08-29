@@ -42,14 +42,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-right">
             <li class="active">
-                <a href="index.jsp">网站首页</a>
+                <a href="indexOne.jsp">网站首页</a>
             </li>
-            <li><a href="CourseServlet?method=searchCourse&secondid=100" class="root">开设课程</a>
+            <li><a href="CourseServlet?method=searchCourse&secondId=100" class="root">开设课程</a>
                 <ul>
-                    <li><a href="CourseServlet?method=searchCourse&secondid=100">JAVA</a></li>
-                    <li><a href="CourseServlet?method=searchCourse&secondid=102">WEB前端</a></li>
-                    <li><a href="CourseServlet?method=searchCourse&secondid=104">软件测试</a></li>
-                    <li><a href="CourseServlet?method=searchCourse&secondid=107">UI设计</a></li>
+                    <li><a href="CourseServlet?method=searchCourse&secondId=100">JAVA</a></li>
+                    <li><a href="CourseServlet?method=searchCourse&secondId=102">WEB前端</a></li>
+                    <li><a href="CourseServlet?method=searchCourse&secondId=104">软件测试</a></li>
+                    <li><a href="CourseServlet?method=searchCourse&secondId=107">UI设计</a></li>
                 </ul>
             </li>
             <li><a href="<s:url action='showLogin' />">用户登录</a></li>
@@ -70,7 +70,7 @@
             <center><span>用户登录</span></center>
         </div>
         <br>
-        <form action="<s:url action="login" />"  method="post">
+        <form action="<s:url action="login" namespace="/" />"  method="post">
             <div class="form-group has-feedback">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>

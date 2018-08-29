@@ -143,8 +143,8 @@ public class UserAction extends ActionSupport {
      *
      * @return
      */
-    public String findAllNotDeleteUser() {
-        List<User> list = userService.findAllNotDeleteUser();
+    public String findAllUser() {
+        List<User> list = userService.findAllUserPvg0();
         if (list.size() != 0) {
             request.put("users", list);
         } else {
