@@ -35,6 +35,17 @@
                 <s:property value="name"/>
             </a>
         </p>
+        <s:iterator value="courseList">
+            <a href="">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <s:property value="courseName"/>
+                    <s:property value="courseDesc"/>
+                    <img src="<s:property value="courseImg"/>" alt="">
+                    <s:property value="courseTeacher"/>
+                    <s:property value="courseType"/>
+                </p>
+            </a>
+        </s:iterator>
     </s:iterator>
 </s:iterator>
 </body>

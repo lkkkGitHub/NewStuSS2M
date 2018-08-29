@@ -53,11 +53,11 @@
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-right">
                 <li class="active"><a href="indexOne.jsp">网站首页</a></li>
-                <li><a href="CourseServlet?method=searchCourse&secondid=100" class="root">课程</a>
+                <li><a href="CourseServlet?method=searchCourse&secondId=100" class="root">课程</a>
                     <ul>
                         <s:iterator value="#request['courseFirsts']">
                             <li>
-                                <a href="CourseServlet?method=searchCourse&secondid=100">
+                                <a href="CourseServlet?method=searchCourse&secondId=100">
                                     <s:property value="name"/>
                                 </a>
                             </li>

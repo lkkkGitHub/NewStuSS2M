@@ -3,8 +3,10 @@ package lk.controller;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import lk.pojo.Course;
 import lk.pojo.CourseSecond;
 import lk.service.CourseSecondService;
+import lk.service.CourseService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +21,7 @@ import java.util.Map;
  * 2018/8/28 14:26
  * @description:
  */
-public class CourseSecondAction extends ActionSupport {
+public class CourseSecondAction {
 
     private CourseSecond courseSecond;
 
@@ -36,8 +38,12 @@ public class CourseSecondAction extends ActionSupport {
     @Autowired
     private CourseSecondService courseSecondService;
 
+    @Autowired
+    private CourseService courseService;
+
     /**
      * 查询所有的二级目录
+     *
      * @return
      */
     public String findAll() {
@@ -57,21 +63,30 @@ public class CourseSecondAction extends ActionSupport {
 
     private String courseName;
     private String courseDesc;
-    private File file;//所上传的图像文件
-    private String fileFileName;//所上传文件的名字
+    private File file; //所上传的图像文件
+    private String fileFileName; //所上传文件的名字
     private String courseTeacher;
     private String courseType;
-    private String secondId;
+    private Integer secondId;
 
     public String createCourse() {
         //添加一门课程
+
+        //取出文件名中的扩展名
+        //找到最后一个“.”的位置，取出其后的字符串
+
+        int index = fileFileName.lastIndexOf('.');
+        String fileExt = fileFileName.substring(index + 1);
+
+        Course course = new Course(0, courseName, courseDesc, fileExt, courseTeacher, courseType, secondId);
+//        courseService.insertCourse(course);
 
         //处理上传的图像
         FileOutputStream fos = null;
         FileInputStream fis = null;
         try {
             // 建立文件输出流
-            String savePath = "src\\main\\webapp\\images\\course\\" + fileFileName;
+            String savePath = ServletActionContext.getServletContext().getRealPath("images/course/" + fileFileName);
             fos = new FileOutputStream(savePath);
             // 建立文件上传流
             fis = new FileInputStream(file);
@@ -85,7 +100,6 @@ public class CourseSecondAction extends ActionSupport {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return ActionSupport.SUCCESS;
     }
 
@@ -138,11 +152,11 @@ public class CourseSecondAction extends ActionSupport {
         this.courseType = courseType;
     }
 
-    public String getSecondId() {
+    public Integer getSecondId() {
         return secondId;
     }
 
-    public void setSecondId(String secondId) {
+    public void setSecondId(Integer secondId) {
         this.secondId = secondId;
     }
 

@@ -56,10 +56,13 @@
             <div class="form-group has-feedback">
                 <div class="input-group">
                     <span class="input-group-addon">封面图片</span>
+
                     <input type="text" size="36" name="upfile" placeholder="   请上传图片"
                            id="upfile" class="" style="height:30px;border:1px solid #ccc;background:#fff">
+                    <%--浏览查找文件--%>
                     <input type="button" value="浏览" onclick="path.click()"
                            style="height:30px;border:1px solid #ccc;background:#fff">
+                    <%--具体文件--%>
                     <input name="file" type="file" id="path" style="display:none"
                            onchange="upfile.value=this.value">
                 </div>

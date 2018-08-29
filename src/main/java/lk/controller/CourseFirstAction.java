@@ -22,7 +22,8 @@ public class CourseFirstAction {
     private CourseFirstService courseFirstService;
 
     /**
-     * 查询所有一级目录，连级查询二级目录
+     * 查询所有一级目录，连级查询二级目录，以及二级目录下的course的具体信息
+     *
      * @return
      */
     public String findAllFirstCtxSecond() {

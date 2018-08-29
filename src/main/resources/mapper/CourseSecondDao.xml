@@ -8,6 +8,10 @@
         <result column="firstId" property="firstId"/>
     </resultMap>
 
+    <resultMap id="ctxCourse" type="lk.pojo.CourseSecond" extends="AllColumnMap">
+        <collection column="id" property="courseList" select="lk.mapper.CourseDao.findCourseById"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
         `id`,
@@ -15,7 +19,8 @@
         `firstId`
     </sql>
 
-    <select id="findByFirstId" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+    <!--通过传入的一级目录的id查询二级目录，以及连级查询course的具体内容-->
+    <select id="findByFirstId" parameterType="java.lang.Integer" resultMap="ctxCourse">
         select * from td_course_second where firstId = #{id};
     </select>
 
@@ -25,7 +30,7 @@
 
     <delete id="deleteByList" parameterType="java.util.List">
         delete from td_course_second
-        where id in
+        where `id` in
         <foreach collection="list" open="(" close=")" separator="," item="ids">
             (
               #{ids.value}

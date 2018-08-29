@@ -39,12 +39,12 @@
                 <li class="active">
                     <a href="indexOne.jsp">网站首页</a>
                 </li>
-                <li><a href="CourseServlet?method=searchCourse&secondid=100" class="root">开设课程</a>
+                <li><a href="CourseServlet?method=searchCourse&secondId=100" class="root">开设课程</a>
                     <ul>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=100">JAVA</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=102">WEB前端</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=104">软件测试</a></li>
-                        <li><a href="CourseServlet?method=searchCourse&secondid=107">UI设计</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=100">JAVA</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=102">WEB前端</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=104">软件测试</a></li>
+                        <li><a href="CourseServlet?method=searchCourse&secondId=107">UI设计</a></li>
 
                     </ul>
                 </li>

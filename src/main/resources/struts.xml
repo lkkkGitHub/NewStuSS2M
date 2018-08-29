@@ -67,7 +67,7 @@
         <!--响应表单提交-->
         <action name="createCourse" class="lk.controller.CourseSecondAction" method="createCourse" >
             <result name="success">/adminJsp/adminIndex.jsp</result>
-            <result name="login">/adminJsp/course/createCourse.jsp</result>
+            <result name="login">/index.jsp</result>
             <interceptor-ref name="fileUpload">
                 <!-- 文件过滤 -->
                 <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>
@@ -80,8 +80,7 @@
 
         <action name="adminInterceptor" class="lk.controller.CourseSecondAction" method="admin">
             <result name="success">/adminJsp/course/createCourse.jsp</result>
-            <!--这个请求也不应被拦截-->
-            <interceptor-ref name="defaultStack"/>
+            <result name="login">/login.jsp</result>
         </action>
 
     </package>

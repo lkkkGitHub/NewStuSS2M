@@ -1,11 +1,23 @@
 package lk.pojo;
 
 
+import java.util.List;
+
 public class CourseSecond {
 
     private Integer id;
     private String name;
     private Integer firstId;
+
+    private List<Course> courseList;
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
 
     public Integer getId() {
         return id;
