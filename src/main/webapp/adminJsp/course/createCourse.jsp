@@ -63,7 +63,7 @@
                     <input type="button" value="浏览" onclick="path.click()"
                            style="height:30px;border:1px solid #ccc;background:#fff">
                     <%--具体文件--%>
-                    <input name="file" type="file" id="path" style="display:none"
+                    <input name="imgFile" type="file" id="path" style="display:none"
                            onchange="upfile.value=this.value">
                 </div>
                 <span style="color:red;display: none;" class="tips"></span>
