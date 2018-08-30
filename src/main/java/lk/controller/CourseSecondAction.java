@@ -63,8 +63,8 @@ public class CourseSecondAction {
 
     private String courseName;
     private String courseDesc;
-    private File file; //所上传的图像文件
-    private String fileFileName; //所上传文件的名字
+    private File imgFile; //所上传的图像文件
+    private String imgFileFileName; //所上传文件的名字
     private String courseTeacher;
     private String courseType;
     private Integer secondId;
@@ -74,22 +74,23 @@ public class CourseSecondAction {
 
         //取出文件名中的扩展名
         //找到最后一个“.”的位置，取出其后的字符串
-
-        int index = fileFileName.lastIndexOf('.');
-        String fileExt = fileFileName.substring(index + 1);
+        System.out.println(imgFile);
+        int index = imgFileFileName.lastIndexOf('.');
+        String fileExt = imgFileFileName.substring(index + 1);
 
         Course course = new Course(0, courseName, courseDesc, fileExt, courseTeacher, courseType, secondId);
-//        courseService.insertCourse(course);
+        courseService.insertCourse(course);
 
         //处理上传的图像
         FileOutputStream fos = null;
         FileInputStream fis = null;
         try {
             // 建立文件输出流
-            String savePath = ServletActionContext.getServletContext().getRealPath("images/course/" + fileFileName);
+            String savePath = ServletActionContext.getServletContext()
+                    .getRealPath("images/course/" + course.getId() + "." + course.getCourseImg());
             fos = new FileOutputStream(savePath);
             // 建立文件上传流
-            fis = new FileInputStream(file);
+            fis = new FileInputStream(imgFile);
             byte[] buffer = new byte[1024];
             int len = 0;
             while ((len = fis.read(buffer)) > 0) {
@@ -120,20 +121,20 @@ public class CourseSecondAction {
         this.courseDesc = courseDesc;
     }
 
-    public File getFile() {
-        return file;
+    public File getImgFile() {
+        return imgFile;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public void setImgFile(File imgFile) {
+        this.imgFile = imgFile;
     }
 
-    public String getFileFileName() {
-        return fileFileName;
+    public String getImgFileFileName() {
+        return imgFileFileName;
     }
 
-    public void setFileFileName(String fileName) {
-        this.fileFileName = fileName;
+    public void setImgFileFileName(String imgFileFileName) {
+        this.imgFileFileName = imgFileFileName;
     }
 
     public String getCourseTeacher() {
