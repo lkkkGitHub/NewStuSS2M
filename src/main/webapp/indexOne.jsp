@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page import="lk.tools.QRCodeUtil" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -132,7 +133,7 @@
             <div class="col-sm-8 col-xs-12 address">
                 <p>为您提供快捷、安全、方便、优质的服务</p>
                 <div>
-                    <img src="images/gw.jpg" title="微信二维码">
+                    <img src="${pageContext.request.contextPath}/<%=QRCodeUtil.getWeiXinBarcodePath() %>" title="微信二维码">
                     <ul>
                         <li><span class="glyphicon glyphicon-user"></span>联 系 人：***</li>
                         <li><span class="glyphicon glyphicon-phone-alt"></span>联系电话：17862666888
