@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<a href="<s:url action="adminInterceptor" namespace="/admin"/> ">创建</a>
+<%--<a href="<s:url action="adminInterceptor" namespace="/admin"/> ">创建</a>--%>
 
 <%--顶部导航栏--%>
 <nav class="navbar navbar-default">
@@ -31,7 +31,7 @@
             <%--<a href=" <s:url action="findAllUser"/> ">管理员</a>--%>
             <a href="adminJsp/adminIndex.jsp">管理员</a>
         </s:if>
-        <a href="<s:url value='myinfo'/>">
+        <a href="">
             <s:property value="#session.loginUser.firstName"/>
             <s:property value="#session.loginUser.lastName"/>
         </a>
@@ -43,11 +43,12 @@
             <button type="button" class="navbar-toggle collapsed"
                     data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href='indexOne.jsp'></a>"><h1>创新学堂</h1></a>
+            <a class="navbar-brand" href='indexOne.jsp'></a><h1>创新学堂</h1></a>
         </div>
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
