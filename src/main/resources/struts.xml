@@ -7,6 +7,7 @@
     <!--告诉Struts框架，产生Action对象时，使用Spring-->
     <!--但是这依赖于一个库struts-spring-plugin-->
     <constant name="struts.objectFactory" value="spring"/>
+    <constant name="struts.multipart.maxSize" value="10701096"/>
 
     <include file="struts-course.xml"/>
 
@@ -47,6 +48,15 @@
         <action name="editUser" class="lk.controller.UserAction" method="editUser">
             <result name="success" type="redirectAction">findAllUser</result>
         </action>
+
+        <!--响应获取图像的请求，图像是以二进制流直接返回给客户端-->
+        <action name="get_login_captcha" class="lk.controller.UserAction" method="getLoginCaptcha">
+            <result name="success" type="stream">
+                <param name="inputName">inputStreamForCaptcha</param>
+                <param name="contentType">image/jpeg</param>
+            </result>
+        </action>
+
     </package>
 
     <package name="admin" namespace="/admin" extends="struts-default">
