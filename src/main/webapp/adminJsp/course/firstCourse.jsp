@@ -40,7 +40,9 @@
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <s:property value="courseName"/>
                     <s:property value="courseDesc"/>
-                    <img src="<s:property value="courseImg"/>" alt="">
+                    <img src="${pageContext.request.contextPath}/images/course/<s:property value='id'/>.<s:property value='courseImg'/>"
+                         onerror="onerror=null;
+                         src='${pageContext.request.contextPath}/images/course/defalut.png'" height="20%" width="20%"/>
                     <s:property value="courseTeacher"/>
                     <s:property value="courseType"/>
                 </p>

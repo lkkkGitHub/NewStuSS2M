@@ -18,11 +18,18 @@
     <!-- Custom Theme files -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="css/form.css" rel="stylesheet" type="text/css" media="all"/>
+    <script>
+        function onCaptchaImageClicked(img) {
+            //为当前地址增加参数，且保证每次参数不同，
+            //于是地址每次都不同，才能保证浏览器每次都从服务端取得最新的图像
+            img.src = "<s:url action='get_login_captcha' />?d=" + new Date() * 1;
+        }
+    </script>
 </head>
 <body>
 
 <div style="float:right ;">
-    <a href="<s:url value='myinfo' />">
+    <a href="">
         <s:property value="#ession['loginUser'].firstName"/>
     </a>
     ,欢迎走进创新学堂&nbsp;&nbsp;&nbsp;&nbsp;
@@ -92,6 +99,13 @@
                 <span style="color:red;display: none;" class="tips"></span>
                 <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            </div>
+            <div class="form-group">
+                <%--显示验证码，响应图像点击事件，每点一次换一次图像的地址参数，这样可以避免缓存干扰--%>
+                <span class="input-group-addon">
+                    <img src="<s:url action='get_login_captcha' />" onclick="onCaptchaImageClicked(this)"/>
+                </span>
+                <input class="form-control" placeholder="请输入验证码" maxlength="20" name="captcha">
             </div>
             <p style="color:red;">${requestScope.messageLogin}</p>
             <br>

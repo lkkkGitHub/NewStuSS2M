@@ -1,13 +1,13 @@
 package lk.mapper;
 
-import lk.pojo.CourseFirst;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import tools.SpringTest;
+        import lk.pojo.CourseFirst;
+        import org.junit.Test;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import tools.SpringTest;
 
-import java.util.List;
+        import java.util.List;
 
-import static org.junit.Assert.*;
+        import static org.junit.Assert.*;
 
 /**
  * @author lk
@@ -21,6 +21,6 @@ public class CourseFirstDaoTest extends SpringTest {
 
     @Test
     public void findAllFirstCtxSecond() {
-       List<CourseFirst> list = courseFirstDao.findAllFirstCtxSecond();
+        List<CourseFirst> list = courseFirstDao.findAllFirstCtxSecond();
     }
 }
