@@ -79,30 +79,23 @@ public class CourseSecondAction {
         //找到最后一个“.”的位置，取出其后的字符串
         int index = imgFileFileName.lastIndexOf('.');
         String fileExt = imgFileFileName.substring(index + 1);
-        //添加一门课程
-        Course course = new Course(0, courseName, courseDesc, fileExt, courseTeacher, courseType, secondId);
-//        courseService.insertCourse(course);
 
         //视频上传
         FileInputStream fileInputStream = null;
-        try {
-            fileInputStream = new FileInputStream(videoFile);
-            String VideoId = UploadVideoDemo.testUploadStream(accessKeyId, accessKeySecret,
-                    "test", videoFileFileName, fileInputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fileInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
         //处理上传的图像
         FileOutputStream fos = null;
         FileInputStream fis = null;
+
         try {
+            fileInputStream = new FileInputStream(videoFile);
+            String videoId = UploadVideoDemo.testUploadStream(accessKeyId, accessKeySecret,
+                    "test", videoFileFileName, fileInputStream);
+            Course course = new Course(0, courseName, courseDesc, fileExt,
+                    courseTeacher, courseType, secondId, videoId);
+            courseService.insertCourse(course);
+
+            //添加一门课程
             // 建立文件输出流
             String savePath = ServletActionContext.getServletContext()
                     .getRealPath("images/course/" + course.getId() + "." + course.getCourseImg());
@@ -116,8 +109,15 @@ public class CourseSecondAction {
             }
             fos.close();
             fis.close();
+
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return ActionSupport.SUCCESS;
     }

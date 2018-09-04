@@ -54,7 +54,7 @@ public class UploadVideoDemo {
         System.out.print("RequestId=" + response.getRequestId() + "\n");  //请求视频点播服务的请求ID
         if (response.isSuccess()) {
             System.out.print("VideoId=" + response.getVideoId() + "\n");
-            return response.getRequestId();
+            return response.getVideoId();
         } else { //如果设置回调URL无效，不影响视频上传，可以返回VideoId同时会返回错误码。其他情况上传失败时，VideoId为空，此时需要根据返回错误码分析具体错误原因
             System.out.print("VideoId=" + response.getVideoId() + "\n");
             System.out.print("ErrorCode=" + response.getCode() + "\n");

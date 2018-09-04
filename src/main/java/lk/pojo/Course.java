@@ -12,12 +12,14 @@ public class Course {
     private String courseTeacher;
     private String courseType;
     private Integer secondId;
+    private String videoId;
 
     public Course() {
     }
 
     public Course(Integer id, String courseName, String courseDesc,
-                  String courseImg, String courseTeacher, String courseType, Integer secondId) {
+                  String courseImg, String courseTeacher, String courseType, Integer secondId,
+                  String videoId) {
         this.id = id;
         this.courseName = courseName;
         this.courseDesc = courseDesc;
@@ -25,6 +27,7 @@ public class Course {
         this.courseTeacher = courseTeacher;
         this.courseType = courseType;
         this.secondId = secondId;
+        this.videoId = videoId;
     }
 
     public Integer getId() {
@@ -87,6 +90,14 @@ public class Course {
 
     public void setSecondId(Integer secondId) {
         this.secondId = secondId;
+    }
+
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 
     @Override
