@@ -42,9 +42,14 @@
                     <s:property value="courseDesc"/>
                     <img src="${pageContext.request.contextPath}/images/course/<s:property value='id'/>.<s:property value='courseImg'/>"
                          onerror="onerror=null;
-                         src='${pageContext.request.contextPath}/images/course/defalut.png'" height="20%" width="20%"/>
+                                 src='${pageContext.request.contextPath}/images/course/defalut.png'" height="20%"
+                         width="20%"/>
                     <s:property value="courseTeacher"/>
                     <s:property value="courseType"/>
+                    <a href="<s:url action="playVideoInfo">
+                            <s:param name="course.videoId" value="videoId"/>
+                            </s:url> ">视频教程
+                    </a>
                 </p>
             </a>
         </s:iterator>
