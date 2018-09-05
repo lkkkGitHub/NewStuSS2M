@@ -7,12 +7,11 @@ import lk.pojo.Course;
 import lk.pojo.CourseSecond;
 import lk.service.CourseSecondService;
 import lk.service.CourseService;
+import lk.tools.UploadVideoDemo;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 
@@ -68,23 +67,35 @@ public class CourseSecondAction {
     private String courseTeacher;
     private String courseType;
     private Integer secondId;
+    private File videoFile;
+    private String videoFileFileName;
 
     public String createCourse() {
-        //添加一门课程
+
+        final String accessKeyId = "LTAIDYKSIXN9yPSZ";
+        final String accessKeySecret = "yC9v1x1JpyghnGcc2YhzcmpwS3y45a";
 
         //取出文件名中的扩展名
         //找到最后一个“.”的位置，取出其后的字符串
-        System.out.println(imgFile);
         int index = imgFileFileName.lastIndexOf('.');
         String fileExt = imgFileFileName.substring(index + 1);
 
-        Course course = new Course(0, courseName, courseDesc, fileExt, courseTeacher, courseType, secondId);
-        courseService.insertCourse(course);
+        //视频上传
+        FileInputStream fileInputStream = null;
 
         //处理上传的图像
         FileOutputStream fos = null;
         FileInputStream fis = null;
+
         try {
+            fileInputStream = new FileInputStream(videoFile);
+            String videoId = UploadVideoDemo.testUploadStream(accessKeyId, accessKeySecret,
+                    "test", videoFileFileName, fileInputStream);
+            Course course = new Course(0, courseName, courseDesc, fileExt,
+                    courseTeacher, courseType, secondId, videoId);
+            courseService.insertCourse(course);
+
+            //添加一门课程
             // 建立文件输出流
             String savePath = ServletActionContext.getServletContext()
                     .getRealPath("images/course/" + course.getId() + "." + course.getCourseImg());
@@ -98,8 +109,15 @@ public class CourseSecondAction {
             }
             fos.close();
             fis.close();
+
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return ActionSupport.SUCCESS;
     }
@@ -161,8 +179,23 @@ public class CourseSecondAction {
         this.secondId = secondId;
     }
 
+    public File getVideoFile() {
+        return videoFile;
+    }
 
-//    public String deleteByList() {
+    public void setVideoFile(File videoFile) {
+        this.videoFile = videoFile;
+    }
+
+    public String getVideoFileFileName() {
+        return videoFileFileName;
+    }
+
+    public void setVideoFileFileName(String videoFileFileName) {
+        this.videoFileFileName = videoFileFileName;
+    }
+
+    //    public String deleteByList() {
 //
 //        return courseSecondService.deleteByList();
 //    }
