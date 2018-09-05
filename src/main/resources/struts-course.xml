@@ -23,6 +23,12 @@
         <action name="findAllFirstCtxSecond" class="lk.controller.CourseFirstAction" method="findAllFirstCtxSecond">
             <result name="success">/adminJsp/course/firstCourse.jsp</result>
         </action>
+
+        <!--获取视频播放地址-->
+        <action name="playVideoInfo" class="lk.controller.CourseFirstAction" method="playVideo">
+            <result name="success">/adminJsp/course/videoPlay.jsp</result>
+            <result name="input" type="redirectAction">findAllFirstCtxSecond</result>
+        </action>
     </package>
     
 </struts>

@@ -80,7 +80,7 @@
             <result name="login">/index.jsp</result>
             <interceptor-ref name="fileUpload">
                 <!-- 文件过滤 -->
-                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>
+                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,mp4</param>
                 <!-- 文件大小, 以字节为单位 -->
                 <param name="maximumSize">1025956</param>
             </interceptor-ref>

@@ -100,6 +100,25 @@
                 <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
                 <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
             </div>
+
+            <div class="form-group has-feedback">
+                <div class="input-group">
+                    <span class="input-group-addon">课程视频</span>
+
+                    <input type="text" size="36" name="videoes" placeholder="   请上传视频"
+                           id="videoes" class="" style="height:30px;border:1px solid #ccc;background:#fff">
+                    <%--浏览查找文件--%>
+                    <input type="button" value="浏览" onclick="path1.click()"
+                           style="height:30px;border:1px solid #ccc;background:#fff">
+                    <%--具体文件--%>
+                    <input name="videoFile" type="file" id="path1" style="display:none"
+                           onchange="videoes.value=this.value">
+                </div>
+                <span style="color:red;display: none;" class="tips"></span>
+                <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            </div>
+
             <br>
             <div class="form-group">
                 <input class="form-control btn btn-warning" value="&nbsp;&nbsp;创&nbsp;&nbsp;建&nbsp;&nbsp;"
