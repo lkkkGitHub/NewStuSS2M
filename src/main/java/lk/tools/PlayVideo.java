@@ -1,11 +1,10 @@
 package lk.tools;
 
-import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.vod.model.v20170321.GetPlayInfoRequest;
 import com.aliyuncs.vod.model.v20170321.GetPlayInfoResponse;
-import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
-import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
+import com.opensymphony.xwork2.Action;
 
 import java.util.List;
 
@@ -34,4 +33,20 @@ public class PlayVideo {
         return initVodClient(accessKeyId, accessKeySecret);
     }
 
+    public static String getUrl(String videoId) {
+        DefaultAcsClient client = getDefaultAcsClient();
+        GetPlayInfoResponse response;
+        try {
+            //获取播放地址
+            GetPlayInfoRequest request = new GetPlayInfoRequest();
+            request.setVideoId(videoId);
+            response = client.getAcsResponse(request);
+            List<GetPlayInfoResponse.PlayInfo> playInfoList = response.getPlayInfoList();
+            //播放地址
+            return playInfoList.get(0).getPlayURL();
+        } catch (Exception e) {
+            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
+            return null;
+        }
+    }
 }
